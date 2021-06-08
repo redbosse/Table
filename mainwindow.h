@@ -7,7 +7,10 @@
 #include <QResizeEvent>
 #include <QColorDialog>
 #include <QImage>
+#include <QCursor>
+
 #include <vector>
+
 
 #include "customscene.h"
 
@@ -20,9 +23,13 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    void closeEvent(QCloseEvent *event);
+    void keyReleaseEvent(QKeyEvent *event);
+
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+
     ~MainWindow();
     QTimer* timer;
 
@@ -36,6 +43,17 @@ private:
     customScene* Scene(){
         return  scene.at(sceneId);
     }
+    QImage renderImage(size_t index);
+    void reloadCustomCursor();
+
+
+    QCursor custom_cursor;
+
+    QImage standart_cursor;
+    QImage cleaner_cursor;
+    QImage circle_cursor;
+    QImage line_cursor;
+    QImage rectangle_cursor;
 
 
 private slots:
@@ -46,6 +64,13 @@ private slots:
      void nextScene();
      void prevScene();
      void saveInImage();
+     void saveInImages();
+     void saveInPDF();
+     void Checked(int index);
+     void verification();
+     void Cleaner();
+     void SetBackgroundColor();
+     void CleanerVariant();
 };
 
 #endif // MAINWINDOW_H

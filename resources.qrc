@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/new/cursor">
+        <file>cursor.png</file>
+        <file>circle_cursor.png</file>
+        <file>cleaner_cursor.png</file>
+        <file>line_cursor.png</file>
+        <file>rectangle_cursor.png</file>
+    </qresource>
+</RCC>
